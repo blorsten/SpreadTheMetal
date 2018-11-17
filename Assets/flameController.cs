@@ -26,9 +26,10 @@ public class flameController : MonoBehaviour
     {
         if (firePushTimer > 0)
         {
+            firePushTimer -= Time.deltaTime;
             foreach (EnemyMovement enemy in enemies)
             {
-                enemy.Push(enemy.transform.position - transform.position, firePushForce);
+                enemy.Push((enemy.transform.position - transform.position).normalized, firePushForce);
             }
         }
     }
@@ -44,7 +45,7 @@ public class flameController : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            enemies.Add(collision.GetComponent<EnemyMovement>());
+            enemies.Remove(collision.GetComponent<EnemyMovement>());
         }
     }
 }
