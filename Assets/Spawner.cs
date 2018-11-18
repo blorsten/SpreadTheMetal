@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
     {
         if (spawnTimer <= 0)
         {
-            Instantiate(toSpawn);
+            Instantiate(toSpawn, transform.position, Quaternion.identity);
             spawnTimer = spawnInterval;
         }
         else

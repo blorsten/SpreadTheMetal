@@ -7,6 +7,7 @@ public class BronyController : MonoBehaviour
 {
     public enum BronyState { Seeking, Elevating, Hovering, Slamming, Resting }
 
+    public float speed = 100;
     public bool actvated;
     public float slamSpeed;
     public float distanceToSlam;
@@ -64,12 +65,15 @@ public class BronyController : MonoBehaviour
             {
                 audioTimer -= Time.deltaTime;
             }
-
-            float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-            if (distanceToPlayer <= distanceToSlam && state == BronyState.Seeking)
+            if (state == BronyState.Seeking)
             {
-                state = BronyState.Elevating;
-                rb.gravityScale = 0;
+                float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+                rb.MovePosition(transform.position + (playerTransform.position - transform.position).normalized * speed * Time.deltaTime);
+                if (distanceToPlayer <= distanceToSlam)
+                {
+                    state = BronyState.Elevating;
+                    rb.gravityScale = 0;
+                }
             }
 
             if (state == BronyState.Elevating)

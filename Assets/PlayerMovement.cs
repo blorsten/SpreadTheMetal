@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float interval = 0.2f;
     private bool canPlaySound;
     public Text hp;
+    public int HP = 5;
 
 
     private Animator animator;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         startScale = transform.localScale.x;
+        hp.text = "HP: " + HP;
     }
 
     // Update is called once per frame
@@ -54,6 +57,19 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("walking", false);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            HP--;
+            hp.text = "HP: " + HP;
+            if (HP <= 0)
+            {
+                SceneManager.LoadScene("InGame");
+            }
         }
     }
 
