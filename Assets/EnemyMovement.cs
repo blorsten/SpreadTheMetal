@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject orangePrefab;
     public float health = 100;
     public GameObject explotion;
+    public float speed = 10;
 
     private Transform playerTransform;
     private Rigidbody2D rb;
@@ -66,17 +67,25 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (jumpTimer <= 0)
+        if (color == EnemyColor.Green || color == EnemyColor.Purple)
         {
-            jumpTimer = jumpInterval;
-            Vector2 direction = (playerTransform.position - transform.position).normalized;
-            direction.y = 1;
+            if (jumpTimer <= 0)
+            {
+                jumpTimer = jumpInterval;
+                Vector2 direction = (playerTransform.position - transform.position).normalized;
+                direction.y = 1;
 
-            rb.AddForce(direction * jumpForce, ForceMode2D.Impulse);
+                rb.AddForce(direction * jumpForce, ForceMode2D.Impulse);
+            }
+            else
+            {
+                jumpTimer -= Time.deltaTime;
+            }
         }
         else
         {
-            jumpTimer -= Time.deltaTime;
+            rb.gravityScale = 0;
+            rb.MovePosition(transform.position + (new Vector3(-1, 0) * Time.deltaTime * speed));
         }
     }
 
@@ -88,6 +97,5 @@ public class EnemyMovement : MonoBehaviour
             Destroy(gameObject);
             Instantiate(explotion, transform.position, Quaternion.identity);
         }
-        rb.AddForce(dir * force);
     }
 }
