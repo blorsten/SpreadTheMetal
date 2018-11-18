@@ -603,6 +603,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4320276181167536, guid: a7df248ee49ceb148ae95f8f66e409fc,
     type: 2}
   m_PrefabInternal: {fileID: 1405504263}
+--- !u!82 &405643108 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82206768441273366, guid: 7cce5b4145268df41a40f6de2dee7475,
+    type: 2}
+  m_PrefabInternal: {fileID: 169030484}
 --- !u!114 &446714714 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114308383397048296, guid: b9b8d18e08fefcf45916903e195d03a5,
@@ -3057,6 +3062,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1180167844}
   spawner: {fileID: 446714714}
+  audioSource: {fileID: 405643108}
+  introClip: {fileID: 8300000, guid: d62072deda89f485e986f71add1fc306, type: 3}
+  BossClip: {fileID: 8300000, guid: f1cc70f7dd28247d6bea74fafa9a0ebf, type: 3}
 --- !u!61 &1233263826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5033,7 +5041,12 @@ Prefab:
     - target: {fileID: 114159644953449644, guid: d4f8dc6b39b97e44e9e0b6f00e3c371b,
         type: 2}
       propertyPath: slamRaiseSpeed
-      value: 0.1
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 82484632634563782, guid: d4f8dc6b39b97e44e9e0b6f00e3c371b,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.165
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4f8dc6b39b97e44e9e0b6f00e3c371b, type: 2}
