@@ -9,6 +9,9 @@ public class flameController : MonoBehaviour
     public float firePushTime = 1;
     public float firePushForce = 1;
     float firePushTimer;
+    public float damage = 10;
+
+    private EnemyColor lastColor;
 
     // Use this for initialization
     void Start()
@@ -16,8 +19,9 @@ public class flameController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void FireFire()
+    public void FireFire(EnemyColor color)
     {
+        lastColor = color;
         animator.SetTrigger("Shoot");
         firePushTimer = firePushTime;
     }
@@ -27,9 +31,10 @@ public class flameController : MonoBehaviour
         if (firePushTimer > 0)
         {
             firePushTimer -= Time.deltaTime;
-            foreach (EnemyMovement enemy in enemies)
+            for (int i = enemies.Count - 1; i >= 0; i--)
             {
-                enemy.Push((enemy.transform.position - transform.position).normalized, firePushForce);
+                if (enemies[i].color == lastColor)
+                    enemies[i].Damage((enemies[i].transform.position - transform.position).normalized, firePushForce, damage);
             }
         }
     }

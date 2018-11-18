@@ -105,4 +105,9 @@ MonoBehaviour:
     type: 2}
   greenPrefab: {fileID: 1371100739559954, guid: 1f295d7f29b6bfe498407b4e895b8210,
     type: 2}
-  yellowPrefab: {fileID: 0}
+  yellowPrefab: {fileID: 1152385072405472, guid: 6be7300f5f47ac94cb0971197764a8f1,
+    type: 2}
+  orangePrefab: {fileID: 1978398556309334, guid: ceb8977d8e8cb7f4abb89b50cf2ed10f,
+    type: 2}
+  health: 100
+  explotion: {fileID: 1935839357641646, guid: 3ee1e5cc0807820439f309f070462c39, type: 2}

@@ -233,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePushTime: 1
   firePushForce: 5
+  damage: 100
 --- !u!95 &463361054
 Animator:
   serializedVersion: 3
@@ -658,7 +659,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upKey: 119
   downKey: 115
-  fireKey: 32
+  purpleFIre: 276
+  greenFire: 273
+  yellowFire: 275
+  orangeFire: 274
+  purple: {r: 1, g: 0, b: 0.7404194, a: 1}
+  yellow: {r: 1, g: 0.9397521, b: 0, a: 1}
+  orange: {r: 1, g: 0.5122582, b: 0, a: 1}
+  green: {r: 0.040408418, g: 0.8018868, b: 0, a: 1}
   rotation: 20
   rotationOffset: 5
   flameController: {fileID: 463361053}

@@ -7,7 +7,8 @@ public enum EnemyColor
     None,
     Green,
     Purple,
-    yellow
+    yellow,
+    Orange
 }
 
 public class EnemyMovement : MonoBehaviour
@@ -20,6 +21,9 @@ public class EnemyMovement : MonoBehaviour
     public GameObject purplePrefab;
     public GameObject greenPrefab;
     public GameObject yellowPrefab;
+    public GameObject orangePrefab;
+    public float health = 100;
+    public GameObject explotion;
 
     private Transform playerTransform;
     private Rigidbody2D rb;
@@ -36,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
         if (color == EnemyColor.None)
         {
             //TODO CHANGE TO 3 when yellow prefab is available
-            color = (EnemyColor)Random.Range(1, 2);
+            color = (EnemyColor)Random.Range(1, 4);
             GameObject toSpawn = null;
 
             switch (color)
@@ -49,6 +53,9 @@ public class EnemyMovement : MonoBehaviour
                     break;
                 case EnemyColor.yellow:
                     toSpawn = yellowPrefab;
+                    break;
+                case EnemyColor.Orange:
+                    toSpawn = orangePrefab;
                     break;
             }
 
@@ -73,8 +80,14 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public void Push(Vector2 dir, float force)
+    public void Damage(Vector2 dir, float force, float damage)
     {
+        health -= damage * Time.deltaTime;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            Instantiate(explotion, transform.position, Quaternion.identity);
+        }
         rb.AddForce(dir * force);
     }
 }
