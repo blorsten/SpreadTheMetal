@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EZCameraShake;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -101,10 +102,12 @@ public class EnemyMovement : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(explotion, transform.position, Quaternion.identity);
+            CameraShaker.Instance.ShakeOnce(5, 5, .5f, 1);
         }
     }
 
-    void playPonySound(){
+    void playPonySound()
+    {
         audioSource.PlayOneShot(ponySoundClips[Random.Range(0, ponySoundClips.Count - 1)]);
     }
 

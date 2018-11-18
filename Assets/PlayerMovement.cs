@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     public Text hp;
 
 
-
     private Animator animator;
     private float startScale;
 
@@ -89,6 +88,9 @@ public class PlayerMovement : MonoBehaviour
         audioSource.PlayOneShot(footstepClips[Random.Range(0, footstepClips.Count - 1)]);
     }
 
-
+    public void WinStance()
+    {
+        animator.SetBool("win", true);
+    }
 
 }
