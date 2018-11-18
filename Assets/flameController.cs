@@ -6,9 +6,11 @@ public class flameController : MonoBehaviour
 {
     Animator animator;
     List<EnemyMovement> enemies = new List<EnemyMovement>();
+   public List<AudioClip> guitarSoundClips = new List<AudioClip>();
     public float firePushTime = 1;
     public float firePushForce = 1;
     float firePushTimer;
+    public AudioSource audioSource;
     public float damage = 10;
 
     private EnemyColor lastColor;
@@ -24,12 +26,13 @@ public class flameController : MonoBehaviour
         lastColor = color;
         animator.SetTrigger("Shoot");
         firePushTimer = firePushTime;
+        playGuitarSound();
     }
 
     private void Update()
     {
-        if (firePushTimer > 0)
-        {
+        if (firePushTimer > 0){
+
             firePushTimer -= Time.deltaTime;
             for (int i = enemies.Count - 1; i >= 0; i--)
             {
@@ -53,4 +56,10 @@ public class flameController : MonoBehaviour
             enemies.Remove(collision.GetComponent<EnemyMovement>());
         }
     }
+
+    void playGuitarSound(){
+
+        audioSource.PlayOneShot(guitarSoundClips[Random.Range(0, guitarSoundClips.Count - 1)]);
+    }
+
 }
