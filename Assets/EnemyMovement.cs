@@ -25,6 +25,10 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float jumpTimer = 0;
 
+    public List<AudioClip> ponySoundClips = new List<AudioClip>();
+    public AudioSource audioSource;
+
+
 
     // Use this for initialization
     void Start()
@@ -53,6 +57,7 @@ public class EnemyMovement : MonoBehaviour
             }
 
             Instantiate(toSpawn, transform);
+            playPonySound();
         }
     }
 
@@ -77,4 +82,9 @@ public class EnemyMovement : MonoBehaviour
     {
         rb.AddForce(dir * force);
     }
+
+    void playPonySound(){
+        audioSource.PlayOneShot(ponySoundClips[Random.Range(0, ponySoundClips.Count - 1)]);
+    }
+
 }
