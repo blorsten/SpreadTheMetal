@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerMovement : MonoBehaviour
 {
 
-  
-    public List<AudioClip> footstepClips = new List<AudioClip>(); 
+
+    public List<AudioClip> footstepClips = new List<AudioClip>();
 
     [SerializeField]
     private int speed = 5;
@@ -14,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private float timer;
     private float interval = 0.2f;
     private bool canPlaySound;
-    
-    
+    public Text hp;
+
 
     private Animator animator;
     private float startScale;
@@ -28,14 +30,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
         checkIfCanPlaySound();
 
         if (Input.GetKey(KeyCode.D))
         {
             doesPlaySound();
-  
+
             transform.localScale = new Vector3(startScale, transform.localScale.y, transform.localScale.z);
             animator.SetBool("walking", true);
             transform.position -= transform.right * -speed * Time.deltaTime;
@@ -54,8 +57,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void checkIfCanPlaySound() {
-       
+    void checkIfCanPlaySound()
+    {
+
         if (timer <= 0)
         {
 
@@ -68,19 +72,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void doesPlaySound(){
-       
-        if (canPlaySound == true) {
+    void doesPlaySound()
+    {
+
+        if (canPlaySound == true)
+        {
             canPlaySound = false;
             timer = interval;
             playFootstep();
         }
     }
 
-    void playFootstep(){
-        audioSource.PlayOneShot(footstepClips[Random.Range(0,footstepClips.Count-1)]);
+    void playFootstep()
+    {
+        audioSource.PlayOneShot(footstepClips[Random.Range(0, footstepClips.Count - 1)]);
     }
 
-
+    public void WinStance()
+    {
+        animator.SetBool("win", true);
+    }
 
 }
