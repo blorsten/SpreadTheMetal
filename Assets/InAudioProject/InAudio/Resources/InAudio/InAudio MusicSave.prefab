@@ -1,0 +1,282 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1892476624175520}
+  m_IsPrefabAsset: 1
+--- !u!1 &1892476624175520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4037302594504938}
+  - component: {fileID: 114377933017012108}
+  - component: {fileID: 114478300466980678}
+  - component: {fileID: 114664089546400632}
+  - component: {fileID: 114395250521354996}
+  - component: {fileID: 114193539092030718}
+  - component: {fileID: 114167591898489122}
+  - component: {fileID: 114337223500158394}
+  m_Layer: 0
+  m_Name: InAudio MusicSave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4037302594504938
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892476624175520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114167591898489122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892476624175520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d726591de3f2f5c4580160d2378446e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1052903963
+  _name: Empty Music Group - Child 1
+  _type: 2
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 1
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 0
+  ScrollPosition: {x: 0, y: 0}
+  _children: []
+  _parent: {fileID: 114193539092030718}
+  runtimeVolume: 0
+  runtimePitch: 0
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _loop: 1
+  _autoStart: 0
+  _clips: []
+--- !u!114 &114193539092030718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892476624175520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d726591de3f2f5c4580160d2378446e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1290491950
+  _name: Empty Music Group
+  _type: 2
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 1
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 1
+  ScrollPosition: {x: 0, y: 0}
+  _children:
+  - {fileID: 114167591898489122}
+  - {fileID: 114337223500158394}
+  _parent: {fileID: 114478300466980678}
+  runtimeVolume: 0
+  runtimePitch: 0
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _loop: 1
+  _autoStart: 0
+  _clips: []
+--- !u!114 &114337223500158394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892476624175520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d726591de3f2f5c4580160d2378446e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1292216820
+  _name: Empty Music Group - Child 2
+  _type: 2
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 1
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 0
+  ScrollPosition: {x: 0, y: 0}
+  _children: []
+  _parent: {fileID: 114193539092030718}
+  runtimeVolume: 0
+  runtimePitch: 0
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _loop: 1
+  _autoStart: 0
+  _clips: []
+--- !u!114 &114377933017012108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892476624175520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dd8bd3ebb3dc04c98cd0fb8f35eedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1661294114
+  _name: Music Root
+  _type: 0
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 1
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 1
+  ScrollPosition: {x: 0, y: 0}
+  _children:
+  - {fileID: 114478300466980678}
+  - {fileID: 114664089546400632}
+  - {fileID: 114395250521354996}
+  _parent: {fileID: 0}
+  runtimeVolume: 0
+  runtimePitch: 0
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _overrideParentBank: 1
+  _externalPlacement: 0
+  _bankLink: {fileID: 114557022027061310, guid: 49ed529000d6447f6b241f5c2055fad1,
+    type: 2}
+--- !u!114 &114395250521354996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892476624175520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dd8bd3ebb3dc04c98cd0fb8f35eedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1206135372
+  _name: Music Folder 2
+  _type: 1
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 1
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 0
+  ScrollPosition: {x: 0, y: 0}
+  _children: []
+  _parent: {fileID: 114377933017012108}
+  runtimeVolume: 0
+  runtimePitch: 0
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _overrideParentBank: 0
+  _externalPlacement: 0
+  _bankLink: {fileID: 114557022027061310, guid: 49ed529000d6447f6b241f5c2055fad1,
+    type: 2}
+--- !u!114 &114478300466980678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892476624175520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dd8bd3ebb3dc04c98cd0fb8f35eedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 656355971
+  _name: Music Folder 0
+  _type: 1
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 1
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 1
+  ScrollPosition: {x: 0, y: 0}
+  _children:
+  - {fileID: 114193539092030718}
+  _parent: {fileID: 114377933017012108}
+  runtimeVolume: 0
+  runtimePitch: 0
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _overrideParentBank: 0
+  _externalPlacement: 0
+  _bankLink: {fileID: 114557022027061310, guid: 49ed529000d6447f6b241f5c2055fad1,
+    type: 2}
+--- !u!114 &114664089546400632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892476624175520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dd8bd3ebb3dc04c98cd0fb8f35eedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 690930579
+  _name: Music Folder 1
+  _type: 1
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 1
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 0
+  ScrollPosition: {x: 0, y: 0}
+  _children: []
+  _parent: {fileID: 114377933017012108}
+  runtimeVolume: 0
+  runtimePitch: 0
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _overrideParentBank: 0
+  _externalPlacement: 0
+  _bankLink: {fileID: 114557022027061310, guid: 49ed529000d6447f6b241f5c2055fad1,
+    type: 2}
