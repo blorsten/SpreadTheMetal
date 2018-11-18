@@ -148,7 +148,7 @@ public class BronyController : MonoBehaviour
 
         if (collision.tag == "Player")
         {
-            //Damage player
+            playerTransform.GetComponent<PlayerMovement>().Damage();
         }
 
     }
@@ -157,6 +157,7 @@ public class BronyController : MonoBehaviour
     {
         if (state == BronyState.Resting)
         {
+
             HP--;
             if (HP <= 0)
             {

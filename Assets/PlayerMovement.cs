@@ -73,6 +73,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Damage()
+    {
+        HP--;
+        hp.text = "HP: " + HP;
+        if (HP <= 0)
+        {
+            SceneManager.LoadScene("InGame");
+        }
+    }
+
     void checkIfCanPlaySound()
     {
 

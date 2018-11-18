@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum EnemyColor
 {
@@ -30,6 +31,11 @@ public class EnemyMovement : MonoBehaviour
     private Transform playerTransform;
     private Rigidbody2D rb;
     private float jumpTimer = 0;
+
+    public Text txfThorHP;
+    public int thorHP = 5;
+    public float collisionTimer;
+    
 
     public List<AudioClip> ponySoundClips = new List<AudioClip>();
     public AudioSource audioSource;
@@ -73,15 +79,22 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (color == EnemyColor.Green || color == EnemyColor.Purple)
         {
             if (jumpTimer <= 0)
             {
+                
                 jumpTimer = jumpInterval;
                 Vector2 direction = (playerTransform.position - transform.position).normalized;
                 direction.y = 1;
 
                 rb.AddForce(direction * jumpForce, ForceMode2D.Impulse);
+
+
+                thorHP--;
+                txfThorHP.text = thorHP.ToString();
+
             }
             else
             {

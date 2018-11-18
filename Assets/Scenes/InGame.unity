@@ -3252,6 +3252,11 @@ Prefab:
       propertyPath: hp
       value: 
       objectReference: {fileID: 1930177471}
+    - target: {fileID: 82425339308537848, guid: a7df248ee49ceb148ae95f8f66e409fc,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.193
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7df248ee49ceb148ae95f8f66e409fc, type: 2}
   m_IsPrefabAsset: 0
