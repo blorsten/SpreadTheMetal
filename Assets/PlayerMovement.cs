@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+public Text hp;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+  
     public List<AudioClip> footstepClips = new List<AudioClip>(); 
 
     [SerializeField]
@@ -78,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
     void playFootstep(){
         audioSource.PlayOneShot(footstepClips[Random.Range(0,footstepClips.Count-1)]);
     }
+
 
 
 }
