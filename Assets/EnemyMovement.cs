@@ -7,7 +7,8 @@ public enum EnemyColor
     None,
     Green,
     Purple,
-    yellow
+    yellow,
+    Orange
 }
 
 public class EnemyMovement : MonoBehaviour
@@ -20,10 +21,18 @@ public class EnemyMovement : MonoBehaviour
     public GameObject purplePrefab;
     public GameObject greenPrefab;
     public GameObject yellowPrefab;
+    public GameObject orangePrefab;
+    public float health = 100;
+    public GameObject explotion;
+    public float speed = 10;
 
     private Transform playerTransform;
     private Rigidbody2D rb;
     private float jumpTimer = 0;
+
+    public List<AudioClip> ponySoundClips = new List<AudioClip>();
+    public AudioSource audioSource;
+
 
 
     // Use this for initialization
@@ -36,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
         if (color == EnemyColor.None)
         {
             //TODO CHANGE TO 3 when yellow prefab is available
-            color = (EnemyColor)Random.Range(1, 2);
+            color = (EnemyColor)Random.Range(1, 4);
             GameObject toSpawn = null;
 
             switch (color)
@@ -50,31 +59,53 @@ public class EnemyMovement : MonoBehaviour
                 case EnemyColor.yellow:
                     toSpawn = yellowPrefab;
                     break;
+                case EnemyColor.Orange:
+                    toSpawn = orangePrefab;
+                    break;
             }
 
             Instantiate(toSpawn, transform);
+            playPonySound();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (jumpTimer <= 0)
+        if (color == EnemyColor.Green || color == EnemyColor.Purple)
         {
-            jumpTimer = jumpInterval;
-            Vector2 direction = (playerTransform.position - transform.position).normalized;
-            direction.y = 1;
+            if (jumpTimer <= 0)
+            {
+                jumpTimer = jumpInterval;
+                Vector2 direction = (playerTransform.position - transform.position).normalized;
+                direction.y = 1;
 
-            rb.AddForce(direction * jumpForce, ForceMode2D.Impulse);
+                rb.AddForce(direction * jumpForce, ForceMode2D.Impulse);
+            }
+            else
+            {
+                jumpTimer -= Time.deltaTime;
+            }
         }
         else
         {
-            jumpTimer -= Time.deltaTime;
+            rb.gravityScale = 0;
+            rb.MovePosition(transform.position + (new Vector3(-1, 0) * Time.deltaTime * speed));
         }
     }
 
-    public void Push(Vector2 dir, float force)
+    public void Damage(Vector2 dir, float force, float damage)
     {
-        rb.AddForce(dir * force);
+        health -= damage * Time.deltaTime;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            Instantiate(explotion, transform.position, Quaternion.identity);
+        }
     }
+
+    void playPonySound(){
+        audioSource.PlayOneShot(ponySoundClips[Random.Range(0, ponySoundClips.Count - 1)]);
+    }
+
 }
