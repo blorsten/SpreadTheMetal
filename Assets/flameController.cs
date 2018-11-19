@@ -13,7 +13,7 @@ public class flameController : MonoBehaviour
     public AudioSource audioSource;
     public float damage = 10;
 
-    BronyController brony;
+    public BronyController brony;
 
     private EnemyColor lastColor;
 
@@ -47,15 +47,23 @@ public class flameController : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (firePushTimer > 0)
+        {
+            if (collision.gameObject.tag == "Brony" && brony.color == lastColor)
+            {
+                brony.Damage();
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
             enemies.Add(collision.GetComponent<EnemyMovement>());
         }
-
-        if (collision.tag == "Brony")
-            brony = collision.GetComponent<BronyController>();
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -63,9 +71,6 @@ public class flameController : MonoBehaviour
         {
             enemies.Remove(collision.GetComponent<EnemyMovement>());
         }
-
-        if (collision.tag == "Brony")
-            brony = null;
     }
 
     void playGuitarSound()

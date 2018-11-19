@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canPlaySound;
     public Text hp;
     public int HP = 5;
-
+    public Canvas endCanvas;
 
     private Animator animator;
     private float startScale;
@@ -117,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
     public void WinStance()
     {
         animator.SetBool("win", true);
+        endCanvas.gameObject.SetActive(true);
     }
 
 }
